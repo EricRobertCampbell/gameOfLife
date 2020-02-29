@@ -1,3 +1,47 @@
+:root {
+	--primaryColour: hsl(230, 50%, 95%); /*light greenish*/
+	--textColour: hsl(230, 100%, 10%); /*Dark greenish*/
+	--contrastColour: hsl(278, 100%, 51%); /*orange*/
+	--buttonColour: hsl(15, 1, 0.68); /*light red*/
+}
+
 body {
 	min-width: 1000px;
+	overflow: scroll;
+	background-color: var(--primaryColour);
+	color: var(--textColour);
 }
+
+h1 {
+	color: var(--textColour);
+	text-align: center;
+}
+
+h2 {
+	color: var(--textColour);
+	text-align: center;
+	
+}
+
+#controls {
+}
+
+#size {
+	width: 3em;
+}
+
+.sizeControl {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.minorControls {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.minorControls button {
+	width: 15em;
+}
+
+

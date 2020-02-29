@@ -15,12 +15,16 @@
 			<h1>Conway's Game of Life!</h1>
 		</header>
 		<div id="controls">
-			<h2>Controls</h2>
-			Size: <input type="text" id="size" placeholder="10">
-			<button type="button" id="generate">Press Here to Generate Grid!</button>
-			<button type="button" id="advance">Advance</button>
-			<button type="button" id="automatic">Run Automatically</button>
-			<button type="button" id="reset">Reset</button>
+			<div class="sizeControl">
+				Size: <input type="number" id="size" placeholder="10">
+				<button type="button" id="generate">Press Here to Generate Grid!</button>
+			</div>
+
+			<div class="minorControls">
+				<button type="button" id="advance">Advance</button>
+				<button type="button" id="automatic">Start</button>
+				<button type="button" id="reset">Reset</button>
+			</div>
 		</div>
 		<div class="container">
 		</div>

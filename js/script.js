@@ -69,15 +69,19 @@ const runAutomatically = () => {
 		clearInterval(autoId);
 		autoId = undefined;
 
+		//reenable the ability to move forward by one generation
+		advance.addEventListener('click', nextGeneration);
+
 		//style the button
-		automatic.style.backgroundColor = 'green';
 		automatic.innerHTML = 'Start';
 	} else {
 		console.log('Starting interval');
 		autoId = setInterval(nextGeneration, 250);
+		//reenable the ability to move forward by one generation
+		advance.removeEventListener('click', nextGeneration);
+
 
 		//style the button
-		automatic.style.backgroundColor = 'red';
 		automatic.innerHTML = 'Stop';
 	}
 };
@@ -95,9 +99,17 @@ window.onload = () => {
 	let advance = document.getElementById('advance'); //button to advance the game one step
 	let automatic = document.getElementById('automatic'); //begin to automatically generate generations
 	let reset = document.getElementById('reset');
+	let sizeInput = document.getElementById('size'); // input field for the size
 
 	console.log(container);
 	generate.addEventListener('click', () => {
+
+		//get the size
+		let size = Number(document.getElementById('size').value);
+		if (Number.isNaN(size) || size <= 0) {
+			return;
+		}
+
 		//Set the background colour
 		container.style.backgroundColor = 'black';
 
@@ -108,8 +120,7 @@ window.onload = () => {
 		cells = [];
 
 		//build the grid by appending divs
-		console.log('CLICK');
-		let size = Number(document.getElementById('size').value);
+
 		console.log(`size: ${size}`);
 		for (let row = 0; row < size; row++) {
 			let currentRow = [];
@@ -139,6 +150,13 @@ window.onload = () => {
 			for (let elem of row) {
 				elem.className = 'dead';
 			}
+		}
+	});
+
+	// if they hit enter, the box will be generated
+	size.addEventListener('keyup', (e) => {
+		if (e.keyCode == 13) {
+			generate.dispatchEvent(new Event('click'));
 		}
 	});
 };
